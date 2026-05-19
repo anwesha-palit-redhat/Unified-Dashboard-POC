@@ -56,7 +56,7 @@ spec:
           workspace: dockerconfig
       params:
         - name: IMAGE
-          value: $(params.image-registry)/unified-dashboard-backend:$(params.image-tag)
+          value: $(params.image-registry)/tektoncd-unified-dashboard-backend:$(params.image-tag)
         - name: DOCKERFILE
           value: deploy/docker/Dockerfile.backend
         - name: CONTEXT
@@ -73,7 +73,7 @@ spec:
           workspace: dockerconfig
       params:
         - name: IMAGE
-          value: $(params.image-registry)/unified-dashboard-frontend:$(params.image-tag)
+          value: $(params.image-registry)/tektoncd-unified-dashboard-frontend:$(params.image-tag)
         - name: DOCKERFILE
           value: deploy/docker/Dockerfile.frontend
         - name: CONTEXT
@@ -112,6 +112,6 @@ spec:
         - name: namespace
           value: $(params.deploy-namespace)
         - name: image-backend
-          value: $(params.image-registry)/unified-dashboard-backend:$(params.image-tag)
+          value: $(params.image-registry)/tektoncd-unified-dashboard-backend:$(params.image-tag)
         - name: image-frontend
-          value: $(params.image-registry)/unified-dashboard-frontend:$(params.image-tag)
+          value: $(params.image-registry)/tektoncd-unified-dashboard-frontend:$(params.image-tag)
