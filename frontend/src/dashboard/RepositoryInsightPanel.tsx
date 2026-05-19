@@ -461,7 +461,7 @@ export function RepositoryInsightPanel({ repo, refreshTrigger, onClose }: Reposi
               <Typography variant="subtitle2">
                 {selected.label} ({complexityFilter ? filteredIssues.length : selected.total})
               </Typography>
-              {hasIssueCategory && (
+              {aiMode && hasIssueCategory && (
                 <>
                   <Chip
                     label="All"
