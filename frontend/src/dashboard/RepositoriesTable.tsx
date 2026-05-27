@@ -400,20 +400,52 @@ export function RepositoriesTable({ repositories, loading = false }: Repositorie
             ))}
           </Stack>
         ) : visibleRepos.length === 0 ? (
-          <Box sx={{ py: 6, textAlign: "center" }}>
-            <Typography variant="body2" color="text.secondary" gutterBottom>
-              No repositories match your search.
-            </Typography>
-            {searchQuery.trim() && (
-              <Chip
-                size="small"
-                label="Clear search"
-                onClick={() => setSearchQuery("")}
-                sx={{ mt: 1 }}
-              />
-            )}
-          </Box>
-        ) : (
+      <Box
+  sx={{
+    py: 8,
+    px: 2,
+    textAlign: "center",
+    borderRadius: 2,
+    border: theme => `1px dashed ${theme.palette.divider}`,
+    bgcolor: "background.default",
+  }}
+>
+  <SearchIcon
+    sx={{
+      fontSize: 42,
+      color: "text.disabled",
+      mb: 1,
+    }}
+  />
+
+  <Typography
+    variant="h6"
+    sx={{
+      fontWeight: 600,
+      mb: 1,
+    }}
+  >
+    No repositories found
+  </Typography>
+
+  <Typography
+    variant="body2"
+    color="text.secondary"
+    sx={{ mb: 2 }}
+  >
+    Try changing your search term or clearing the filter.
+  </Typography>
+
+  {searchQuery.trim() && (
+    <Chip
+      size="medium"
+      label="Clear search"
+      clickable
+      onClick={() => setSearchQuery("")}
+    />
+  )}
+</Box>
+    ) : (
         <Stack spacing={1.5}>
           {visibleRepos.map(repo => {
             const open = expandedId === repo.id;
